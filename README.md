@@ -1,4 +1,5 @@
 # vue-hisdoc-project
+> vue-cli创建的，基于自行设计的移动版医生站制作的项目。
 
 ## Project setup
 ```

@@ -1,0 +1,99 @@
+<template>
+  <!-- 主页div组件 -->
+  <div class="search">
+    <router-link to="/city">
+      <div class="left">
+        <span>{{city}}<i class="fa fa-caret-down fa-fw"></i></span>
+      </div>
+    </router-link>    
+
+    
+      <div class="mid">
+        <router-link to="/search">
+          <i class="fa fa-search fa-fw"></i>        
+          <input type="text" :placeholder='searchtis'/>
+        </router-link>
+
+        <router-link to="/Scan">
+          <i class="fa fa-qrcode fa-fw"></i>
+        </router-link>
+      </div>
+       
+    
+    <router-link to="/location">
+      <div class="right">      
+        <span><i class="fa fa-map-marker fa-fw"></i>{{maptitle}}</span>
+      </div>
+    </router-link>    
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'Search',
+  // 组织好组建的参数
+  props: {
+    city: String,
+    searchtis: String,  // 搜索的提示
+    maptitle: String
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  .search{
+    display: flex;
+    flex-direction: row;
+    height: 44px;
+    align-items: center;
+    font-size: 15px;
+    justify-content: space-around;
+    /* box-shadow: 1px 2px rgba(0,0,0,0.03); */
+    /* color: #FCFDFF; */
+    /* background:#000; */
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3),rgba(0,0,0,0));
+  }
+
+  .search span{
+    color: #FCFDFF;
+  }
+
+  .left{
+    display: flex;
+    justify-content: space-between;
+  }
+  input{
+    height: 28px;
+    line-height: 28px;
+    border: none;
+    padding:0 4px;
+    background-color: transparent;   
+  }
+  .mid{
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 100px;
+    height: 28px;
+    line-height: 28px;
+    padding:0 4px;
+    background-color: #FCFDFF;
+    margin:0 -16px;
+  }
+   .mid i:first-child{
+    color:#BBBBBB;
+  }
+  .mid i:last-child{
+    color:#4ABAE2;
+  }
+  .right span{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size:9px;    
+  }
+  .right span i{
+    font-size: 18px; 
+    line-height: 22px;
+  }
+
+</style>
