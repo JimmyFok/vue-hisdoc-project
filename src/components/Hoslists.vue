@@ -2,26 +2,26 @@
   <div class="hoslist">
       <ul>
          <li 
-                v-for="(item,index) in hositems" 
-                :key = "index" 
-                @click = "change">
-                <router-link :to="{ name:'host', params:{id:index,stores: item}}" class="msg" >
-                    <span>{{item.title}}</span>
-                    <span>月诊<i>{{item.number}}</i></span>
-                    <span>
-                        <i 
-                            v-for="(item,index) in item.funs" :key = "index" 
-                            v-if="item"
-                            :style="
-                                'color:'+ funstyles[item].color +
-                                ';'+'border:1px solid '+ 
-                                funstyles[item].color +';'
-                            "
-                        >{{funstyles[item].name}}</i>
-                    </span>
-                </router-link>             
-                <div class="pic" :style ="'background-image:url('+ item.src +')'" ></div>
-            </li>       
+            v-for="(item,index) in hositems" 
+            :key = "index" 
+            @click = "change">
+            <router-link :to="{ name:'host', params:{id:index,stores: item}}" class="msg" >
+                <span>{{item.title}}</span>
+                <span>月诊<i>{{item.number}}</i></span>
+                <span>
+                    <i 
+                        v-for="(item,index) in item.funs" :key = "index" 
+                        v-if="item"
+                        :style="
+                            'color:'+ funstyles[item].color +
+                            ';'+'border:1px solid '+ 
+                            funstyles[item].color +';'
+                        "
+                    >{{funstyles[item].name}}</i>
+                </span>
+            </router-link>             
+            <div class="pic" :style ="'background-image:url('+ item.src +')'" ></div>
+         </li>       
       </ul>
   </div>
 </template>
@@ -58,22 +58,25 @@ export default {
       align-items: stretch;
       justify-content: space-around;
       flex-grow: 1;
-      margin-left: 12px;
-      border-bottom: 0.5px #e5e5e5 solid;
+      margin-left: 12px;      
   }
   li,router-link{
-      flex-basis:96px;
+      padding-top:8px;
+      padding-bottom:8px;
+      flex-grow:1;
       display: flex;
       flex-direction: row;
-      align-items: center;
+      align-items: stretch;
       font-size: 12px;
       color: #333333; 
+      border-bottom: 0.5px #e5e5e5 solid;
   }
   li .msg{
       flex-grow:1;
       display:flex;
       flex-direction: column;
       align-items: flex-start;
+      justify-content: space-between;
       font-size:13px;
       color: #999999;
   }
@@ -83,14 +86,20 @@ export default {
       line-height: 20px;
       margin-bottom:8px;
       text-align: left;
-      overflow: hidden;
-	  text-overflow: ellipsis;
-	  display: -webkit-box;
-	  -webkit-line-clamp: 2;
-	  -webkit-box-orient: vertical;
+      /* 超过两行隐藏并省略号 */
+      overflow:hidden; 
+      text-overflow:ellipsis;
+      display:-webkit-box; 
+      -webkit-box-orient:vertical;
+      -webkit-line-clamp:2; 
   }
+
   li .msg span:nth-child(2){
       padding-bottom:10px;
+  }
+
+  li .msg span:nth-child(3){
+      display:flex;
   }
 
   li .msg span:nth-child(3) i{
@@ -104,7 +113,7 @@ export default {
   .pic{
       flex-basis: 88px;
       flex-shrink: 0;
-      height: 80%;
+      height: 88px;
       margin-right:8px;
       background-size: auto 100%;
       background-position: center center;

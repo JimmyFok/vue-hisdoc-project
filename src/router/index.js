@@ -9,18 +9,21 @@ import Location from '../pages/search/Location';
 import Banner from '../pages/banner/Banner';
 
 import User from '../pages/user/User';
+import Helper from '../pages/user/Helper';
 
 import News from '../pages/news/News';
 
-import Book from '../pages/funs/Book';
-import Today from '../pages/funs/Today';
-import Pay from '../pages/funs/Pay';
-import Check from '../pages/funs/Check';
-import Medinfo from '../pages/funs/Medinfo';
+import Fun from '../pages/funs/Fun';
+// import Today from '../pages/funs/Today';
+// import Pay from '../pages/funs/Pay';
+// import Check from '../pages/funs/Check';
+// import Medinfo from '../pages/funs/Medinfo';
 
 import Host from '../pages/host/Host';
 
 import Sep from '../pages/sep/Sep';
+
+import Hoslists from '../components/Hoslists';
 
 Vue.use(VueRouter)
 
@@ -44,6 +47,10 @@ const router = new VueRouter({
             path:'/search',
             name:'search',  // 自定义路由名
             component: Search, // 组件名
+            // 局部的导航守卫设置
+            // beforeEnter: (to, from, next) => {
+            //     // ...
+            //   }
         },
         {
             path:'/scan',
@@ -69,6 +76,12 @@ const router = new VueRouter({
             name:'user',  // 自定义路由名
             component: User, // 组件名
         },
+        {
+            path:'/helper',
+            name:'helper',  // 自定义路由名
+            component: Helper, // 组件名
+        },
+
 
         // News
         {
@@ -79,30 +92,41 @@ const router = new VueRouter({
 
         // Funs
         {
-            path:'/fun0',
-            name:'book',  // 自定义路由名
-            component: Book, // 组件名
-        },
-        {
-            path:'/fun1',
-            name:'today',  // 自定义路由名
-            component: Today, // 组件名
-        },
-        {
-            path:'/fun2',
-            name:'pay',  // 自定义路由名
-            component: Pay, // 组件名
-        },
-        {
-            path:'/fun3',
-            name:'check',  // 自定义路由名
-            component: Check, // 组件名
-        },
-        {
-            path:'/fun4',
-            name:'medinfo',  // 自定义路由名
-            component: Medinfo, // 组件名
-        },   
+            path:'/fun:id',
+            name:'fun',  // 自定义路由名
+            component: Fun, // 组件名
+            props: { 
+                default: true, 
+                sidebar: false,
+            },
+            // 重定向到默认的页面处
+            redirect: { 
+                name: 'funall' 
+            },
+            // 设定子路由用于tab用
+            children:[
+                {
+                    name: 'funall',
+                    path: 'all', 
+                    component: Hoslists,
+                    props: { 
+                        default: true, 
+                        sidebar: false,
+                    },
+                },
+                {
+                    name: 'funsmart',
+                    path: 'smart', 
+                    component: News,
+                    props: { 
+                        default: true, 
+                        sidebar: false,
+                    },
+                },
+                
+
+            ]
+        },         
 
         // Seps
         {

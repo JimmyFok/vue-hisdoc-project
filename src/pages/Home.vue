@@ -20,6 +20,7 @@
     <News :newstates = "datastore.newstates"/>
     <Funs 
       :funitems="datastore.funitems" 
+      :routestores="datastore.routestores"
     />
     <Seps 
       :spesitems="datastore.spesitems"    

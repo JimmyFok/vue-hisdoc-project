@@ -1,8 +1,10 @@
 <template>
   <div id="app">
-    <router-view :datastore="datastore">
-      <!-- <Home/> -->
-    </router-view>    
+    <!-- <transition> -->
+      <router-view :datastore="datastore">
+        <!-- <Home/> -->
+      </router-view> 
+    <!-- </transition>    -->
   </div>
 </template>
 
@@ -154,9 +156,151 @@ export default {
             ],
             src: require(srcbegin+"hospital.jpg"),
             url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
+          },
+          {          
+            title:'广东省中医院（广州中医药大学第二附属医院、广州中医药大学第二临床医学院）',
+            number: '999+',
+            funs:[ 
+              "reg", 
+              "check" ,
+              "pay" ,
+              "insure", 
+              "send"
+            ],
+            src: require(srcbegin+"hospital.jpg"),
+            url: "http://www.gdhtcm.com/index.aspx"         
           }
+          
         ],
         funstyles, // 把这个函数回调出来
+
+        // funs需要通过路由传数据到对应模版
+        routestores:{
+          "0": this.hositems,
+          "1": this.hositems,
+          "2": this.hositems,
+          "3": this.hositems,
+          "4": this.hositems,
+          "5": this.hositems,
+          "funstyles": this.funstyles
+        }
       }
     }
     
@@ -167,5 +311,12 @@ export default {
 
 <style>  
   /* 样式引入 */
-  @import './assets/css/css-reset.css';  
+  @import './assets/css/css-reset.css';
+
+  /* 去除移动端以下标签的阴影 */
+  a,
+  input,
+  label{
+      -webkit-tap-highlight-color:rgba(255,0,0,0);
+  } 
 </style>

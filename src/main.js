@@ -8,8 +8,14 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 // require styles
 import 'swiper/dist/css/swiper.css'
 
-
 import router from './router'
+
+// 全局创建一个focus方法
+// Vue.directive('focus',{
+//   inserted:function(el){
+//       el.focus()
+//   }
+// })
 
 Vue.use(VueRouter)
 
@@ -21,3 +27,6 @@ new Vue({
   router, // 引入路由
   render: h => h(App)
 }).$mount('#app')
+
+
+

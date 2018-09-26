@@ -1,13 +1,17 @@
 <template>
   <!-- 主页div组件 -->
   <div class="search">
-    <router-link to="/city">
-      <div class="left">
-        <span>{{city}}<i class="fa fa-caret-down fa-fw"></i></span>
-      </div>
-    </router-link>    
-
     
+      <div class="left">
+        <router-link v-if="city" to="/city">
+          <span>{{city}}<i class="fa fa-caret-down fa-fw"></i></span>
+        </router-link>  
+        
+        <div @click="backfun"  v-if="back">
+          <span ><i class="fa fa-angle-left fa-fw"></i>{{back}}</span>
+        </div>  
+      </div>
+       
       <div class="mid">
         <router-link to="/search">
           <i class="fa fa-search fa-fw"></i>        
@@ -17,14 +21,18 @@
         <router-link to="/Scan">
           <i class="fa fa-qrcode fa-fw"></i>
         </router-link>
-      </div>
-       
+      </div>       
     
-    <router-link to="/location">
+    <router-link v-if="maptitle" to="/location">
       <div class="right">      
-        <span><i class="fa fa-map-marker fa-fw"></i>{{maptitle}}</span>
+        <span ><i class="fa fa-map-marker fa-fw"></i>{{maptitle}}</span>
       </div>
     </router-link>    
+
+    <div @click="backfun"  v-if="cancel">
+        <span class="cancel">{{cancel}}</span>
+    </div>  
+
   </div>
 </template>
 
@@ -35,8 +43,15 @@ export default {
   props: {
     city: String,
     searchtis: String,  // 搜索的提示
-    maptitle: String
-  }
+    maptitle: String,
+    back: String,
+    cancel: String
+  },
+  methods:{
+    backfun:function(){
+      this.$router.go(-1)
+    }
+  },  
 }
 </script>
 
@@ -48,11 +63,10 @@ export default {
     height: 44px;
     align-items: center;
     font-size: 15px;
-    justify-content: space-around;
-    /* box-shadow: 1px 2px rgba(0,0,0,0.03); */
+    justify-content: space-around;   
     /* color: #FCFDFF; */
     /* background:#000; */
-    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3),rgba(0,0,0,0));
+    background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.3),rgba(0,0,0,0));    
   }
 
   .search span{
@@ -63,12 +77,19 @@ export default {
     display: flex;
     justify-content: space-between;
   }
+
+  .mid a{
+    display:flex;
+    align-items: center;
+  }
+
   input{
     height: 28px;
-    line-height: 28px;
+    line-height: 20px;
     border: none;
-    padding:0 4px;
-    background-color: transparent;   
+    padding:4px 4px;
+    background-color: transparent; 
+    flex-grow: 1;
   }
   .mid{
     border: 1px solid rgba(0,0,0,0.05);
@@ -78,8 +99,9 @@ export default {
     padding:0 4px;
     background-color: #FCFDFF;
     margin:0 -16px;
+    display: flex;
   }
-   .mid i:first-child{
+  .mid i:first-child{
     color:#BBBBBB;
   }
   .mid i:last-child{
@@ -95,5 +117,10 @@ export default {
     font-size: 18px; 
     line-height: 22px;
   }
-
+  .fa-angle-left{
+    font-size:20px;
+  }
+  .cancel{
+      padding:0 12px 0 0;
+  }
 </style>

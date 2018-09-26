@@ -1,7 +1,7 @@
 <template>
   <div class="user">
-      <div class="face"></div>
-      <div class="msg">
+      <div class="face" @click="touser"></div>
+      <div class="msg" @click="touser">
           <span class="name">
               {{name}}
               <i v-show = "male" class="fa fa-mars fa-fw"></i>
@@ -9,7 +9,7 @@
           </span>
           <span class="vip"><i>{{vip}}</i>{{vipname}}</span>
       </div>
-      <div class="serve">
+      <div class="serve" @click="tohelper">
           <div class="name">
               <div>小管家</div>
               <div class="servename">{{servename}}</div>
@@ -30,6 +30,26 @@ export default {
     servename: String,
     male: Boolean,
     female: Boolean
+  },
+  methods:{
+      touser:function(){
+          this.$router.push({
+              name: 'user',
+              // 路由传参
+              params: {
+                  
+              }
+          })
+      },
+      tohelper:function(){
+          this.$router.push({
+              name: 'helper',
+              // 路由传参
+              params: {
+                  
+              }
+          })
+      }
   }
 }
 </script>

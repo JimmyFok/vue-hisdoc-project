@@ -5,7 +5,7 @@
             v-for="(item,index) in funitems" 
             :key = "index" 
             @click = "change">
-                <router-link :to ="'/fun'+index">
+                <router-link :to ="{name:'fun', params:{id:index, title:item.title, stores:funitems, funstyles:routestores['funstyles'] }}">
                     <div :style ="'background-image:url('+ item.src +')'" ></div>
                     <!-- <img :src="srcbegin+item.src" :alt="item.title"> -->
                     <span>{{item.title}}</span>
@@ -20,6 +20,7 @@ export default {
   name: 'Funs',   //组织好组建的参数
   props: {
     funitems: Array,
+    routestores: Object
   },
   // 定义方法
   methods:{

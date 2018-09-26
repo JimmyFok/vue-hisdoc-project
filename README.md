@@ -1,17 +1,17 @@
 # vue-hisdoc-project
 > vue-cli创建的，基于自行设计的移动版医生站制作的项目。
 
-## Project setup
+## 项目安装
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### 热加载开发调试
 ```
 yarn run serve
 ```
 
-### Compiles and minifies for production
+### 生产用打包构建
 ```
 yarn run build
 ```
@@ -20,3 +20,12 @@ yarn run build
 ```
 yarn run lint
 ```
+
+
+## 版本更新说明
+> 这是学习时做的项目，希望能跟关注此项目的朋友互相学习~~！！
+
+
+
+## 说明
+> 这是学习时做的项目，希望能跟关注此项目的朋友互相学习~~！！
