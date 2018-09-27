@@ -100,7 +100,7 @@
     color: #4ABAE2;
  }
 
-  .tab{
+  .tab,.tabitem{
     flex-grow: 1;
     display: flex;
     height: 44px;

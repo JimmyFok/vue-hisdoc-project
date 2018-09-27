@@ -10,13 +10,6 @@ import 'swiper/dist/css/swiper.css'
 
 import router from './router'
 
-// 全局创建一个focus方法
-// Vue.directive('focus',{
-//   inserted:function(el){
-//       el.focus()
-//   }
-// })
-
 Vue.use(VueRouter)
 
 Vue.use(VueAwesomeSwiper, /* { default global options } */)
@@ -24,7 +17,7 @@ Vue.use(VueAwesomeSwiper, /* { default global options } */)
 Vue.config.productionTip = false
 
 new Vue({
-  router, // 引入路由
+  router, // 引入路由  
   render: h => h(App)
 }).$mount('#app')
 

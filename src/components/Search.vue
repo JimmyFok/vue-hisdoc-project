@@ -19,7 +19,9 @@
         </router-link>
 
         <router-link to="/Scan">
-          <i class="fa fa-qrcode fa-fw"></i>
+          <div>
+             <i class="fa fa-qrcode fa-fw" ></i>
+          </div>         
         </router-link>
       </div>       
     
@@ -31,13 +33,18 @@
 
     <div @click="backfun"  v-if="cancel">
         <span class="cancel">{{cancel}}</span>
-    </div>  
+    </div> 
+
+    <!-- <qrcode :value="value" :size="size" :fg-color="fgColor" :bg-color="bgColor"></qrcode> -->
 
   </div>
 </template>
 
 <script>
-export default {
+// import Vue from 'vue'
+// import { Qrcode } from 'vux'
+
+export default { 
   name: 'Search',
   // 组织好组建的参数
   props: {
@@ -45,13 +52,24 @@ export default {
     searchtis: String,  // 搜索的提示
     maptitle: String,
     back: String,
-    cancel: String
+    cancel: String,
   },
   methods:{
     backfun:function(){
       this.$router.go(-1)
     }
-  },  
+  },
+  // components: {
+  //   Qrcode
+  // },
+  // data(){
+  //   return {
+  //     value: "http://192.168.1.49:8080/",
+  //     size: 80,
+  //     bgColor: '#FFFFFF',
+  //     fgColor: '#000000',
+  //   }
+  // }
 }
 </script>
 
